@@ -2,14 +2,45 @@
 ### What is Asciio
 [App::Asciio - Plain ASCII diagram](https://metacpan.org/pod/App::Asciio).
 
-The app is free for you drawing diagram to discribe your logics of your codes or classes. But it is can't work on MacOS, so 
+The app is free for you drawing diagram to discribe your logics of your codes or classes. 
+
+```
+  vncviewer         .-,(  ),-.    
+   __  _         .-(          )-.           gateway           vncserver 
+  [__]|=|  ---->(    internet    )-------> __________ ------> ____   __ 
+  /::/|_|        '-(          ).-'        [_...__...°]       |    | |==|
+                     '-.( ).-'                               |____| |  |
+                                                             /::::/ |__|
+```
+```
+
+  ____[]
+ | ___ |
+ ||   ||  device
+ ||___||  loads
+ | ooo |------------------------------------------------------------.
+ | ooo |    |                          |                            |
+ | ooo |    |                          |                            |
+ '_____'    |                          |                            |
+            |                          |                            |
+            v                          v                            v
+  .-------------------.  .---------------------------.    .-------------------.
+  | Loadable module C |  |     Loadable module A     |    | Loadable module B |
+  '-------------------'  |---------------------------|    |   (instrumented)  |
+            |            |         .-----.           |    '-------------------'
+            '--------------------->| A.o |           |              |
+                calls    |         '-----'           |              |
+                         |    .------------------.   |              |
+                         |    | A.instrumented.o |<-----------------'
+                         |    '------------------'   |    calls
+                         '---------------------------'
+```
+But it is can't work on MacOS, so 
 I made this docker image to make it working on MacOS.
 Hope you enjoying it.
 
-# Using it.
-
--------------------------
-
+# Using
+----------
 ### installing xquartz on MAC:
 ```
 brew install xquartz
