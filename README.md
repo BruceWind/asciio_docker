@@ -6,6 +6,10 @@ The app is free for you drawing diagram to discribe your logics of your codes or
 I made this docker image to make it working on MacOS.
 Hope you enjoying it.
 
+# Using it.
+
+-------------------------
+
 ### installing xquartz on MAC:
 ```
 brew install xquartz
