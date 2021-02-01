@@ -1,4 +1,6 @@
 # asciio_docker
+------
+[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/BruceWind/asciio_docker/blob/master/LICENSE)
 ### What is Asciio
 [App::Asciio - Plain ASCII diagram](https://metacpan.org/pod/App::Asciio).
 
@@ -59,15 +61,15 @@ docker container run  -it -v $PWD/asciio_saved:/home/developer/asciio_saved  -e 
 ```
 
 ### Copying diagram
-There are two ways to get you diagram:
+There are two ways to get your diagram which you drew:
 
 1.Copy into pasteboard:
 
-> By the time you have done you diagram in Asciio, you can press Ctrl+ E to copy diagram as code comment.
+> By the time you have done you diagram in Asciio, you can press **Ctrl + E** to copy diagram as code comment.
 
 2.Open in **sublime-text app** or another text editor:
 
 > `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drew, you can click **save menu** to save at /home/developer/asciio_saved and  the file name  must be append with ".txt" .
 ![screenshot](https://raw.githubusercontent.com/BruceWind/asciio_docker/main/screenshot_of_asciio.png)
 
-WARNING: Don't modify those file from your docker host.
+> WARNING: Don't modify those file from your docker host.
