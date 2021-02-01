@@ -3,6 +3,8 @@
 [App::Asciio - Plain ASCII diagram](https://metacpan.org/pod/App::Asciio).
 
 The app is free for you drawing diagram to discribe your logics of your codes or classes. 
+And the diagram you can paste into your code comment.
+Such as:
 
 ```
   vncviewer         .-,(  ),-.    
@@ -13,51 +15,53 @@ The app is free for you drawing diagram to discribe your logics of your codes or
                                                              /::::/ |__|
 ```
 ```
-
-  ____[]
- | ___ |
- ||   ||  device
- ||___||  loads
- | ooo |------------------------------------------------------------.
- | ooo |    |                          |                            |
- | ooo |    |                          |                            |
- '_____'    |                          |                            |
-            |                          |                            |
-            v                          v                            v
-  .-------------------.  .---------------------------.    .-------------------.
-  | Loadable module C |  |     Loadable module A     |    | Loadable module B |
-  '-------------------'  |---------------------------|    |   (instrumented)  |
-            |            |         .-----.           |    '-------------------'
-            '--------------------->| A.o |           |              |
-                calls    |         '-----'           |              |
-                         |    .------------------.   |              |
-                         |    | A.instrumented.o |<-----------------'
-                         |    '------------------'   |    calls
-                         '---------------------------'
+    +---------+
+    |         |
+    |   NFS   |--+
+    |         |  |
+    +---------+  |   +----------+
+                 |   |          |
+    +---------+  +-->|          |
+    |         |      |          |
+    |   AFS   |----->| FS-Cache |
+    |         |      |          |
+    +---------+ +--->|          |
+                |    |          | 
+    +---------+ |    +----------+ 
+    |         | |
+    |  ISOFS  |-+
+    |         |   
+    +---------+
 ```
-But it is can't work on MacOS, so 
-I made this docker image to make it working on MacOS.
+But it can't work on MacOS,
+so I made this docker image to make it working on MacOS.
 Hope you enjoying it.
 
 # Using
 ----------
-### installing xquartz on MAC:
-```
-brew install xquartz
-```
-### Configing XQuartz
+### Configing [XQuartz](https://www.xquartz.org/)
 XQuartz is the basis for supporting x11 to run Asciio with GUI.
 
-1. open XQuartz,
+1. `brew install xquartz`,and open XQuartz,
 2. open menu "application" -> "terminal"
-3. input command : `xhost +`
+3. input command on **xhost's terminal window**: `xhost +`
 ## Pulling docker image 
 
 ```
 docker pull brucexx1/asciio_docker_test
 ```
 
-### The latest command you should run:
+### The latest command you should run on terminal in MacOS:
 ```
-docker container run  -it -e DISPLAY=host.docker.internal:0 brucexx1/asciio_docker_test
+mkdir asciio_saved # create a directory which asciio app can save at.
+#append -v to map asciio_saved to docker container's directory.
+docker container run  -it -v $PWD/asciio_saved:/home/developer/asciio_saved  -e DISPLAY=host.docker.internal:0 brucexx1/asciio_docker_test
 ```
+
+### Copying diagram
+There are two ways to get you diagram:
+
+1. Copy into pasteboard:
+ By the time you have done you diagram in Asciio, you can press Ctrl+ E to copy diagram as code comment.
+2. Open in **sublime-text app** or another text editor.
+`docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drawed, you can use **save menu** to save at that  /home/developer/asciio_saved and  the file name  must be append with ".txt" .

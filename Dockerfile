@@ -1,7 +1,11 @@
-FROM FROM ubuntu:14.04
+FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y asciio && apt-get install -y x11-apps
 
+RUN apt-get update && apt-get install -y asciio \
+                            x11-apps \
+                            sudo \
+                             && rm -rf /var/lib/apt/lists/*
+                            # rm apt lists will reduce image size.
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
