@@ -65,7 +65,7 @@ There are two ways to get your diagram which you drew:
 
 2.Open in **sublime-text app** or another text editor:
 
-> `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drew, you can click **save menu** to save at /home/developer/asciio_saved and  the file name  must be append with ".txt" .
+> `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drew, you can click **save menu** to save at /home/developer/asciio_saved. The file name that you saved must be append with ".txt" .
 ![screenshot](https://raw.githubusercontent.com/BruceWind/asciio_docker/main/screenshot_of_asciio.png)
 
 > WARNING: Don't modify those file from your docker host.
