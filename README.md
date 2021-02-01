@@ -39,28 +39,24 @@ But it can't work on MacOS,
 so I made this docker image to make it working on MacOS.
 Hope you enjoying it.
 
-# Two steps to run it.
-----------
+# Running.
+
 ### Configing [XQuartz](https://www.xquartz.org/)
 XQuartz is the basis for supporting x11 to run Asciio with GUI.
 
 1. `brew install xquartz`,and open XQuartz,
 2. open menu "application" -> "terminal"
 3. input command on **xhost's xterm window**: `xhost +`
-## Pulling docker image 
+## Pulling docker and starting asciio 
 
-```
-docker pull brucexx1/asciio_docker_test
-```
-
-### The latest command you should run on terminal in MacOS:
 ```shell
+docker pull brucexx1/asciio_docker_test
 mkdir asciio_saved # create a directory which asciio app can save at.
 #append -v to map asciio_saved to docker container's directory.
 docker container run  -it -v $PWD/asciio_saved:/home/developer/asciio_saved  -e DISPLAY=host.docker.internal:0 brucexx1/asciio_docker_test
 ```
 
-### Copying diagram
+### How to copy drawn diagram
 There are two ways to get your diagram which you drew:
 
 1.Copy into pasteboard:
