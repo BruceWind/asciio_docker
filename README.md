@@ -44,7 +44,7 @@ XQuartz is the basis for supporting x11 to run Asciio with GUI.
 
 1. `brew install xquartz`,and open XQuartz,
 2. open menu "application" -> "terminal"
-3. input command on **xhost's terminal window**: `xhost +`
+3. input command on **xhost's xterm window**: `xhost +`
 ## Pulling docker image 
 
 ```
@@ -52,7 +52,7 @@ docker pull brucexx1/asciio_docker_test
 ```
 
 ### The latest command you should run on terminal in MacOS:
-```
+```shell
 mkdir asciio_saved # create a directory which asciio app can save at.
 #append -v to map asciio_saved to docker container's directory.
 docker container run  -it -v $PWD/asciio_saved:/home/developer/asciio_saved  -e DISPLAY=host.docker.internal:0 brucexx1/asciio_docker_test
@@ -61,7 +61,10 @@ docker container run  -it -v $PWD/asciio_saved:/home/developer/asciio_saved  -e 
 ### Copying diagram
 There are two ways to get you diagram:
 
-1. Copy into pasteboard:
- By the time you have done you diagram in Asciio, you can press Ctrl+ E to copy diagram as code comment.
-2. Open in **sublime-text app** or another text editor.
-`docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drawed, you can use **save menu** to save at that  /home/developer/asciio_saved and  the file name  must be append with ".txt" .
+1.Copy into pasteboard:
+
+> By the time you have done you diagram in Asciio, you can press Ctrl+ E to copy diagram as code comment.
+
+2.Open in **sublime-text app** or another text editor:
+
+> `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drawed, you can use **save menu** to save at that  /home/developer/asciio_saved and  the file name  must be append with ".txt" .
