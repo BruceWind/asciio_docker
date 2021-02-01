@@ -37,7 +37,7 @@ But it can't work on MacOS,
 so I made this docker image to make it working on MacOS.
 Hope you enjoying it.
 
-# Using
+# Two steps to run it.
 ----------
 ### Configing [XQuartz](https://www.xquartz.org/)
 XQuartz is the basis for supporting x11 to run Asciio with GUI.
@@ -67,4 +67,7 @@ There are two ways to get you diagram:
 
 2.Open in **sublime-text app** or another text editor:
 
-> `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drawed, you can use **save menu** to save at that  /home/developer/asciio_saved and  the file name  must be append with ".txt" .
+> `docker -v $PWD/asciio_saved` will map local directory into docker filesystem. After you drew, you can click **save menu** to save at /home/developer/asciio_saved and  the file name  must be append with ".txt" .
+![screenshot](https://raw.githubusercontent.com/BruceWind/asciio_docker/main/screenshot_of_asciio.png)
+
+WARNING: Don't modify those file from your docker host.
